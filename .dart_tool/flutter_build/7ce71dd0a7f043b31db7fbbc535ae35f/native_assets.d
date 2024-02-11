@@ -1,0 +1,1 @@
+ D:\\Krishna's\ Flutter\\faszen\\.dart_tool\\flutter_build\\7ce71dd0a7f043b31db7fbbc535ae35f\\native_assets.yaml: 
