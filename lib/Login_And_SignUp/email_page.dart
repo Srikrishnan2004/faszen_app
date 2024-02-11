@@ -1,10 +1,40 @@
 import 'package:faszen/Login_And_SignUp/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
 
-class EmailPage extends StatelessWidget {
+class EmailPage extends StatefulWidget {
   EmailPage({super.key});
+  // void handleSubmitted(context) {
+  //   String email = emailcontroller.text;
+  //   String backendUrl = 'http://192.168.1.7:3000/api/auth/checkEmail';
+  //   http.post(
+  //     Uri.parse(backendUrl),
+  //     body: {
+  //       'email': email,
+  //     },
+  //   ).then((response) {
+  //     if (response.statusCode == 200) {
+  //       Navigator.push(
+  //         context,
+  //         MaterialPageRoute(
+  //           builder: (context) => LoginPage(emailController: emailcontroller),
+  //         ),
+  //       );
+  //     }
+  //   }).catchError((error) {
+  //     ScaffoldMessenger.of(context).showSnackBar(
+  //       SnackBar(content: Text("Error $error")),
+  //     );
+  //   });
+  // }
+  @override
+  State<EmailPage> createState() => _EmailPageState();
+}
+
+class _EmailPageState extends State<EmailPage> {
   TextEditingController emailcontroller = TextEditingController();
+  bool isValid = true;
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -14,6 +44,7 @@ class EmailPage extends StatelessWidget {
         return false;
       },
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             // crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,10 +65,12 @@ class EmailPage extends StatelessWidget {
                 child: TextFormField(
                   controller: emailcontroller,
                   keyboardType: TextInputType.emailAddress,
-                  decoration: const InputDecoration(
-                    border: UnderlineInputBorder(),
+                  decoration: InputDecoration(
+                    border: const UnderlineInputBorder(),
+                    // ignore: dead_code
+                    errorText: isValid ? null : "Invalid email format",
                     labelText: "Your Email",
-                    prefixIcon: Padding(
+                    prefixIcon: const Padding(
                       padding: EdgeInsets.all(5),
                       child: Icon(Icons.mail),
                     ),
@@ -93,15 +126,18 @@ class EmailPage extends StatelessWidget {
                 width: 0.9 * width,
                 child: ElevatedButton(
                   onPressed: () {
-                    if (emailcontroller.text.endsWith("@gmail.com") ||
-                        emailcontroller.text.endsWith("@yahoo.com") ||
-                        emailcontroller.text.endsWith("@hotmail.com")) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                LoginPage(emailController: emailcontroller)),
-                      );
+                    if (emailcontroller.text.isNotEmpty) {
+                      if (emailcontroller.text.endsWith("@gmail.com") ||
+                          emailcontroller.text.endsWith("@hotmail.com") ||
+                          emailcontroller.text.endsWith("@facebook.com")) {
+                        setState(() {
+                          isValid = true;
+                        });
+                      } else {
+                        setState(() {
+                          isValid = false;
+                        });
+                      }
                     }
                   },
                   child: const Text("CONTINUE"),
