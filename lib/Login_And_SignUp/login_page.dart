@@ -1,7 +1,7 @@
-import 'package:faszen/Login_And_SignUp/OtpPage.dart';
+import 'package:faszen/Login_And_SignUp/otp_page.dart';
 import 'package:flutter/material.dart';
-import 'package:faszen/Login_And_SignUp/PasswordPage.dart';
-import 'package:faszen/HomePage/HomePage.dart';
+import 'package:faszen/Login_And_SignUp/password_page.dart';
+import 'package:faszen/HomePage/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   TextEditingController emailController = TextEditingController();
