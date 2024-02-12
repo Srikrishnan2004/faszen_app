@@ -1,4 +1,4 @@
-import 'package:faszen/Login_And_SignUp/otp_page.dart';
+import 'package:faszen/login_and_signup/otp_page.dart';
 import 'package:flutter/material.dart';
 import 'package:faszen/home_page/home_page.dart';
 
