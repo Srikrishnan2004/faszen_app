@@ -2,6 +2,7 @@ import 'package:faszen/Login_And_SignUp/otp_page.dart';
 import 'package:flutter/material.dart';
 import 'package:faszen/home_page/home_page.dart';
 
+// ignore: must_be_immutable
 class LoginPage extends StatefulWidget {
   TextEditingController emailController = TextEditingController();
   LoginPage({required this.emailController, super.key});

@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 
 class EmailPage extends StatefulWidget {
-  EmailPage({super.key});
+  const EmailPage({super.key});
   // void handleSubmitted(context) {
   //   String email = emailcontroller.text;
   //   String backendUrl = 'http://192.168.1.7:3000/api/auth/checkEmail';
