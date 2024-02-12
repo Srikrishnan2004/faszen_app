@@ -1,4 +1,4 @@
-import 'package:faszen/Login_And_SignUp/email_page.dart';
+import 'package:faszen/login_and_signup/email_page.dart';
 import 'package:flutter/material.dart';
 
 class PasswordPage extends StatefulWidget {

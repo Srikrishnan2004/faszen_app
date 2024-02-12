@@ -1,4 +1,4 @@
-import 'package:faszen/Login_And_SignUp/password_page.dart';
+import 'package:faszen/login_and_signup/password_page.dart';
 import 'package:flutter/material.dart';
 
 class OtpPage extends StatefulWidget {
